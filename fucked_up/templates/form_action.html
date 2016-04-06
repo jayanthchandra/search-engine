@@ -1,0 +1,34 @@
+ <html>
+    <head>
+        <title>Handle POST requests with Flask</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css' }}">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+        <link rel="stylesheet" href="{{ url_for('static', filename='/bootstrap/css/bootstrap.min.css' }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='/font-awesome/css/font-awesome.min.css'}}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='/css/form-elements.css'}}">
+        <link rel="stylesheet" href="{{{url_for('static',filename='/css/style.css'}}">
+    </head>
+    <body>
+        <div id="container">
+            <div class="title">
+                <h1>POST request with Flask</h1>
+            </div>
+            <div id="content">
+               <ul><li> <strong>{{doc1}}</strong> </li>
+               <li>{{doc2}}</li>
+               </ul>
+            </div>
+            <div class="title">
+                <h1>Flask code</h1>
+            </div>
+                <code><pre>
+@app.route('/hello/', methods=['POST'])
+def hello():
+    name=request.form['yourname']
+    email=request.form['youremail']
+    return render_template('form_action.html', name=name, email=email)
+                </pre></code>
+            </div>
+        </div>
+    </body>
+</html>
