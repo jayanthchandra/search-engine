@@ -77,7 +77,7 @@ def word_split(text):
     wcurrent = []
     windex = None
 
-    for i, c in enumerate(text):
+    for i, c in enumerat(text):
         if c.isalnum():
             wcurrent.append(c)
             windex = i
