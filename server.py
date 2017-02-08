@@ -55,14 +55,16 @@ def hello():
 	query=request.form['query']
 	inverted = {}
 	documents = {'doc1':doc1, 'doc2':doc2}
-	for doc_id, text in documents.iteritems():
+    ans=[]
+    for doc_id, text in documents.iteritems():
 		doc_index = inverted_index(text)
 		inverted_index_add(inverted, doc_id, doc_index)
 	result_docs = search(inverted, query)
 	for _, word in word_index(query):
 		def extract_text(doc, index): 
 			return documents[doc][index:index+20].replace('\n', ' ')
-	ans=[]
+
+
         for doc in result_docs:
             for index in inverted[word][doc]:
                 ans.append(extract_text(doc, index))
